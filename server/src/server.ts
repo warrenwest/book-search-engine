@@ -8,7 +8,14 @@ import { typeDefs, resolvers } from './schemas/index.js';
 import db from './config/connection.js';
 import jwt from 'jsonwebtoken';
 import dotenv from 'dotenv';
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+
 dotenv.config();
+
+// Fix for __dirname in ES module
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const PORT = process.env.PORT || 3001;
 const app = express();
