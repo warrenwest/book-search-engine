@@ -4,7 +4,7 @@ import {
   createUser,
   getSingleUser,
   saveBook,
-  deleteBook,
+  removeBook,
   login,
 } from '../../controllers/user-controller.js';
 
@@ -18,6 +18,6 @@ router.route('/login').post(login);
 
 router.route('/me').get(authenticateToken, getSingleUser);
 
-router.route('/books/:bookId').delete(authenticateToken, deleteBook);
+router.route('/books/:bookId').delete(authenticateToken, removeBook);
 
 export default router;
